@@ -91,18 +91,25 @@ class graphite::params {
         /squeeze|wheezy|precise/: {
           $apache_24          = false
           $graphitepkgs       = union($common_os_pkgs, ['python-cairo',])
+          $libpath            = "/usr/lib/python${pyver}/dist-packages"
         }
 
         /jessie|trusty|utopic|vivid|wily/: {
           $apache_24          = true
           $graphitepkgs       = union($common_os_pkgs, ['python-cairo',])
+          $libpath            = "/usr/lib/python${pyver}/dist-packages"
+        }
+
+        /xenial/: {
+          $apache_24          = true
+          $graphitepkgs       = union($common_os_pkgs, ['python-cairo',])
+          $libpath            = "/usr/local/lib/python${pyver}/dist-packages"
         }
 
         default: {
           fail("Unsupported Debian release: '${::lsbdistcodename}'")
         }
       }
-      $libpath = "/usr/lib/python${pyver}/dist-packages"
     }
 
     'RedHat': {
