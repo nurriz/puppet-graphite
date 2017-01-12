@@ -53,28 +53,28 @@ class graphite::install inherits graphite::params {
       ensure  => $::graphite::gr_carbon_ver,
       name    => $::graphite::gr_carbon_pkg,
       source  => $::graphite::gr_carbon_source,
-      install_options => ['--no-binary=:all:', {'--proxy' => "${gr_pip_proxy}"}],
+      install_options => ['--no-binary=:all:', {'--proxy' => "${::graphite::gr_pip_proxy}"}],
     }
     ,
     'django-tagging' => {
       ensure => $::graphite::gr_django_tagging_ver,
       name   => $::graphite::gr_django_tagging_pkg,
       source => $::graphite::gr_django_tagging_source,
-      install_options => [{'--proxy' => "${gr_pip_proxy}"}],
+      install_options => [{'--proxy' => "${::graphite::gr_pip_proxy}"}],
     }
     ,
     'graphite-web'   => {
       ensure => $::graphite::gr_graphite_ver,
       name   => $::graphite::gr_graphite_pkg,
       source => $::graphite::gr_graphite_source,
-      install_options => ['--no-binary=:all:', {'--proxy' => "${gr_pip_proxy}"}],
+      install_options => ['--no-binary=:all:', {'--proxy' => "${::graphite::gr_pip_proxy}"}],
     }
     ,
     'twisted'        => {
       ensure => $::graphite::gr_twisted_ver,
       name   => $::graphite::gr_twisted_pkg,
       source => $::graphite::gr_twisted_source,
-      install_options => [{'--proxy' => "${gr_pip_proxy}"}],
+      install_options => [{'--proxy' => "${::graphite::gr_pip_proxy}"}],
       before => [Package['txamqp'], Package['carbon'],],
     }
     ,
@@ -82,7 +82,7 @@ class graphite::install inherits graphite::params {
       ensure => $::graphite::gr_txamqp_ver,
       name   => $::graphite::gr_txamqp_pkg,
       source => $::graphite::gr_txamqp_source,
-      install_options => [{'--proxy' => "${gr_pip_proxy}"}],
+      install_options => [{'--proxy' => "${::graphite::gr_pip_proxy}"}],
       before => [
         Package['carbon'],
         ],
@@ -92,7 +92,7 @@ class graphite::install inherits graphite::params {
       ensure => $::graphite::gr_whisper_ver,
       name   => $::graphite::gr_whisper_pkg,
       source => $::graphite::gr_whisper_source,
-      install_options => ['--no-binary=:all:', {'--proxy' => "${gr_pip_proxy}"}],
+      install_options => ['--no-binary=:all:', {'--proxy' => "${::graphite::gr_pip_proxy}"}],
     }
     ,
   }
