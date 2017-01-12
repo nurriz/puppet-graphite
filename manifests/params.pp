@@ -20,7 +20,7 @@ class graphite::params {
   $txamqp_ver            = '0.4'
   $txamqp_source         = undef
   $graphite_pkg          = 'graphite-web'
-  $graphite_ver          = '0.9.15'
+  $graphite_ver          = 'present'
   $graphite_source       = undef
   $carbon_pkg            = 'carbon'
   $carbon_ver            = '0.9.15'

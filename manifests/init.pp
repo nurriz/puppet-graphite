@@ -748,6 +748,7 @@ class graphite (
   $gr_django_source                       = $::graphite::params::django_source,
   $gr_django_provider                     = $::graphite::params::django_provider,
   $gr_pip_install                         = true,
+  $gr_pip_proxy                           = undef,
   $gr_manage_python_packages              = true,
   $gr_disable_webapp_cache                = false,
   $gr_carbonlink_query_bulk               = undef,
