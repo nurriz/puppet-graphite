@@ -107,6 +107,7 @@ class graphite::install inherits graphite::params {
       ensure   => $::graphite::gr_django_ver,
       provider => $::graphite::gr_django_provider,
       source   => $::graphite::gr_django_source,
+      install_options => [{'--proxy' => "${::graphite::gr_pip_proxy}"}],
       require  => $gr_pkg_require,
     }
   }
